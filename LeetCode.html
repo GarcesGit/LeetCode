@@ -4,6 +4,29 @@
 
     <body>
         <script>
+            ///////////////////подключи js
+
+            //Создайте конструктор, экземпляры которого будут возвращать инкрементированное число:
+
+            //НЕ РАБОТАЕТ //= 1 1 5
+            class Increment {
+                constructor() {
+                    this.count = 1;
+                }
+
+                valueOf() {
+                    return ++this.count;
+                }
+
+                toString() {
+                    return this.count.toString();
+                }
+            }
+            let increment = new Increment();
+            alert(increment); /* 1 */
+            alert(increment); /* 2 */
+            alert(increment + increment); /*7 */
+
             // 88. Merge Sorted Array
             let merge = function (nums1, m, nums2, n) {
                 while (n) {
