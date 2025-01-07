@@ -4,42 +4,18 @@
 
     <body>
         <script>
-            ///////////////////подключи js
+            var maxProfit = function (prices) {
+                let minPrice = Infinity; // Инициализируем минимальную цену как бесконечность
+                let maxProfit = 0;
 
-            //Создайте конструктор, экземпляры которого будут возвращать инкрементированное число:
-
-            //НЕ РАБОТАЕТ //= 1 1 5
-            class Increment {
-                constructor() {
-                    this.count = 1;
+                for (let price of prices) {
+                    minPrice = Math.min(minPrice, price); // Находим минимальную цену на данный момент
+                    maxProfit = Math.max(maxProfit, price - minPrice); // Обновляем максимальную прибыль
                 }
-
-                valueOf() {
-                    return ++this.count;
-                }
-
-                toString() {
-                    return this.count.toString();
-                }
-            }
-            let increment = new Increment();
-            alert(increment); /* 1 */
-            alert(increment); /* 2 */
-            alert(increment + increment); /*7 */
-
-            // 88. Merge Sorted Array
-            let merge = function (nums1, m, nums2, n) {
-                while (n) {
-                    if (nums1[m - 1] > nums2[n - 1]) {
-                        nums1[m + n - 1] = nums1[--m];
-                    } else {
-                        nums1[m + n - 1] = nums2[--n];
-                    }
-                }
-                return nums1;
+                return maxProfit;
             };
-            console.log(merge([1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3));
-            // [1, 2, 2, 3, 5, 6]
+            console.log(maxProfit([7, 1, 5, 3, 6, 4])); // 6-1=5
+            console.log(maxProfit([7, 6, 4, 3, 1])); // 0
 
             <!--
 
