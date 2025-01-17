@@ -4,18 +4,22 @@
 
     <body>
         <script>
-            var maxProfit = function (prices) {
-                let minPrice = Infinity; // Инициализируем минимальную цену как бесконечность
-                let maxProfit = 0;
+            var longestCommonPrefix = function (strs) {
+                // for (let i = 0; i < strs[0].length; i++) {
+                //     const char = strs[0][i];
 
-                for (let price of prices) {
-                    minPrice = Math.min(minPrice, price); // Находим минимальную цену на данный момент
-                    maxProfit = Math.max(maxProfit, price - minPrice); // Обновляем максимальную прибыль
-                }
-                return maxProfit;
+                //     for (let j = 1; j < strs.length; j++) {
+                //         if (i >= strs[j].length || strs[j][i] !== char) {
+                //             return strs[0].slice(0, i);
+                //         }
+                //     }
+                // }
+                return strs[0];
             };
-            console.log(maxProfit([7, 1, 5, 3, 6, 4])); // 6-1=5
-            console.log(maxProfit([7, 6, 4, 3, 1])); // 0
+            console.log(longestCommonPrefix(["flower", "flow", "flight"])); // 'fl'
+            console.log(longestCommonPrefix(["dog", "racecar", "car"])); // ''
+
+            // console.log(char);
 
             <!--
 
