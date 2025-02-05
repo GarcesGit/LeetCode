@@ -4,23 +4,17 @@
 
     <body>
         <script>
-            var longestCommonPrefix = function (strs) {
-                // for (let i = 0; i < strs[0].length; i++) {
-                //     const char = strs[0][i];
-
-                //     for (let j = 1; j < strs.length; j++) {
-                //         if (i >= strs[j].length || strs[j][i] !== char) {
-                //             return strs[0].slice(0, i);
-                //         }
-                //     }
-                // }
-                return strs[0];
+            // 28. Find the Index of the First Occurrence in a String
+            var strStr = function (haystack, needle) {
+                for (let i = 0; i <= haystack.length - needle.length; i++) {
+                    let slice = haystack.slice(i, i + needle.length);
+                    if (slice === needle) return i;
+                }
+                return -1;
             };
-            console.log(longestCommonPrefix(["flower", "flow", "flight"])); // 'fl'
-            console.log(longestCommonPrefix(["dog", "racecar", "car"])); // ''
 
-            // console.log(char);
-
+            console.log(strStr("sadbutsad", "sad"));
+            console.log(strStr("leetcode", "leeto"));
             <!--
 
             -->

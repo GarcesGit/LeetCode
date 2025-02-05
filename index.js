@@ -1,3 +1,42 @@
+// 28. Find the Index of the First Occurrence in a String
+//1 super
+var strStr = function (haystack, needle) {
+    return haystack.indexOf(needle);
+};
+console.log(strStr("butsad", "sad")); //3
+console.log(strStr("leetcode", "leeto")); //-1
+
+//2 почти мой / O(n*m)=квадратичной сложности
+var strStr = function (haystack, needle) {
+    for (let i = 0; i <= haystack.length - needle.length; i++) {
+        let slice = haystack.slice(i, i + needle.length);
+
+        if (slice === needle) {
+            return i;
+        }
+    }
+    return -1;
+};
+console.log(strStr("butsad", "sad")); //3
+console.log(strStr("leetcode", "leeto")); //-1
+
+//3 подробная реализация indexOf
+var strStr = function (haystack, needle) {
+    var len1 = haystack.length;
+    var len2 = needle.length;
+    if (!len2) return 0;
+    for (var i = 0; i < len1; i++) {
+        for (var j = 0; j < len2; j++) {
+            if (i + j === len1) return -1;
+            if (haystack[i + j] !== needle[j]) break;
+            if (j === len2 - 1) return i;
+        }
+    }
+    return -1;
+};
+console.log(strStr("butsad", "sad")); //3
+console.log(strStr("leetcode", "leeto")); //-1
+
 // 14. Longest Common Prefix
 //Write a function to find the longest common prefix string amongst an array of strings.
 var longestCommonPrefix = function (strs) {
