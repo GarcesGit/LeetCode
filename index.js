@@ -1,3 +1,13 @@
+// 9. Palindrome Number
+var isPalindrome = function (x) {
+    const rev = String(x).split("").reverse().join("");
+    return rev == x;
+};
+
+console.log(isPalindrome(121));
+console.log(isPalindrome(-121));
+console.log(isPalindrome(10));
+
 // 28. Find the Index of the First Occurrence in a String
 //1 super
 var strStr = function (haystack, needle) {
